@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore;
 
 using SistemaVenta.DAL.Implementacion;
 using SistemaVenta.DAL.Interfaces;
-// using SistemaVenta.BLL.Implementacion;
-// using SistemaVenta.BLL.Interfaces;
+using SistemaVenta.BLL.Implementacion;
+using SistemaVenta.BLL.Interfaces;
 
 namespace SistemaVenta.IOC
 {
@@ -32,6 +32,9 @@ namespace SistemaVenta.IOC
 
             // Inyeccion de dependencias para IVentaRepository y VentaRepository
             services.AddScoped<IVentaRepository, VentaRepository>();
+
+            // Ddependencia de eenvio de correo
+            services.AddScoped<ICorreoService, CorreoService>();
         }
     }
 }
