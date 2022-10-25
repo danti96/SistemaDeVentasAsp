@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Implementacion\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>
