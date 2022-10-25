@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using SistemaVenta.Entity;
 
-namespace SistemaVenta.Entity
+namespace SistemaVenta.DALL.DBContext
 {
     public partial class DBVENTAContext : DbContext
     {
@@ -16,18 +17,18 @@ namespace SistemaVenta.Entity
         {
         }
 
-        public virtual DbSet<Categorium> Categoria { get; set; } = null!;
+        public virtual DbSet<Categoria> Categoria { get; set; } = null!;
         public virtual DbSet<Configuracion> Configuracions { get; set; } = null!;
-        public virtual DbSet<DetalleVentum> DetalleVenta { get; set; } = null!;
+        public virtual DbSet<DetalleVenta> DetalleVenta { get; set; } = null!;
         public virtual DbSet<Menu> Menus { get; set; } = null!;
         public virtual DbSet<Negocio> Negocios { get; set; } = null!;
         public virtual DbSet<NumeroCorrelativo> NumeroCorrelativos { get; set; } = null!;
         public virtual DbSet<Producto> Productos { get; set; } = null!;
         public virtual DbSet<Rol> Rols { get; set; } = null!;
         public virtual DbSet<RolMenu> RolMenus { get; set; } = null!;
-        public virtual DbSet<TipoDocumentoVentum> TipoDocumentoVenta { get; set; } = null!;
+        public virtual DbSet<TipoDocumentoVenta> TipoDocumentoVenta { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
-        public virtual DbSet<Ventum> Venta { get; set; } = null!;
+        public virtual DbSet<Venta> Venta { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,7 +41,7 @@ namespace SistemaVenta.Entity
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categorium>(entity =>
+            modelBuilder.Entity<Categoria>(entity =>
             {
                 entity.HasKey(e => e.IdCategoria)
                     .HasName("PK__Categori__8A3D240C31B9260A");
@@ -82,7 +83,7 @@ namespace SistemaVenta.Entity
                     .HasColumnName("valor");
             });
 
-            modelBuilder.Entity<DetalleVentum>(entity =>
+            modelBuilder.Entity<DetalleVenta>(entity =>
             {
                 entity.HasKey(e => e.IdDetalleVenta)
                     .HasName("PK__DetalleV__BFE2843F6251B8B0");
@@ -355,7 +356,7 @@ namespace SistemaVenta.Entity
                     .HasConstraintName("FK__RolMenu__idRol__2B3F6F97");
             });
 
-            modelBuilder.Entity<TipoDocumentoVentum>(entity =>
+            modelBuilder.Entity<TipoDocumentoVenta>(entity =>
             {
                 entity.HasKey(e => e.IdTipoDocumentoVenta)
                     .HasName("PK__TipoDocu__A9D59AEE8BC45918");
@@ -429,7 +430,7 @@ namespace SistemaVenta.Entity
                     .HasConstraintName("FK__Usuario__idRol__300424B4");
             });
 
-            modelBuilder.Entity<Ventum>(entity =>
+            modelBuilder.Entity<Venta>(entity =>
             {
                 entity.HasKey(e => e.IdVenta)
                     .HasName("PK__Venta__077D56142E375420");

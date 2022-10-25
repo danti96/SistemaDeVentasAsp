@@ -17,3 +17,18 @@ ejecute el siguiente comando:
 
     Scaffold-DbContext "Server=DESKTOP-D7BNDHP; DataBase=DBVENTA;Integrated Security=true" Microsoft.EntityFrameworkCore.SqlServer
 
+
+REFERENCIA
+En dependencias, click derecho, Agregar referencia del proyecto
+    DAL           <= Entity
+
+    BLL           <= DAL
+    BLL           <= Entity
+
+    IOC           <= BLL
+    IOC           <= DAL
+
+    AplicacionWeb <= BLL
+    AplicacionWeb <= Entity
+    AplicacionWeb <= IOC
+
