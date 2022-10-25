@@ -15,6 +15,7 @@ using SistemaVenta.DAL.Implementacion;
 using SistemaVenta.DAL.Interfaces;
 using SistemaVenta.BLL.Implementacion;
 using SistemaVenta.BLL.Interfaces;
+using Firebase.Auth;
 
 namespace SistemaVenta.IOC
 {
@@ -35,6 +36,7 @@ namespace SistemaVenta.IOC
 
             // Ddependencia de eenvio de correo
             services.AddScoped<ICorreoService, CorreoService>();
+            services.AddScoped<IFiraBaseServices, FireBaseService>();
         }
     }
 }
